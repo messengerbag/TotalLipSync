@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 // TOTAL LIP SYNC MODULE - Header
-// by Gunnar Harboe (Snarky), v0.4
+// by Gunnar Harboe (Snarky), v0.5
 //
 // Description:
 // This module enables speech-based lip sync animation for any speech mode (while the AGS built-in 
@@ -116,6 +116,12 @@ struct TotalLipSync
   import static void AddPhonemeMappings(String phonemes, int frame);
   /// Clears all phoneme mappings.
   import static void ClearPhonemeMappings();
+  /// Returns the character that is currently being lip synced, or null if none.
+  import static Character* GetCurrentLipSyncingCharacter();
+  /// Returns the phoneme code that is currently active (i.e. the phoneme being spoken at this time). If lip sync not currently running, null. If running but no phoneme set yet, "".
+  import static String GetCurrentPhoneme();
+  /// Returns the animation frame (i.e. the mouth shape) that is currently being displayed. -1 if no character is currently being lip synced.
+  import static int GetCurrentFrame();
 };
 
 /// Says the specified text using the character's speech settings, while playing a speech-based lip-sync animation. The line must have a speech clip prefix ("&N " where N is the number of the speech file), and there must be a matching lip-sync data file in the data directory.
