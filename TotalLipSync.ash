@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 // TOTAL LIP SYNC MODULE - Header
-// by Gunnar Harboe (Snarky), v0.5
+// by Gunnar Harboe (Snarky), v0.6
 //
 // Description:
 // This module enables speech-based lip sync animation for any speech mode (while the AGS built-in 
@@ -96,18 +96,30 @@ enum TotalLipSyncFileFormat
   eLipSyncRhubarb
 };
 
+enum Casing
+{
+  eCasingLowerCase = -1, 
+  eCasingDefaultCase, 
+  eCasingUpperCase
+};
+
 struct TotalLipSync
 {
   /// Initializes TotalLipSync. This method should be called on startup.
-  import static void Init(TotalLipSyncFileFormat lipSyncFormat);
-  /// Sets the directory to read the lip sync data files from. Default "$INSTALLDIR$/sync" (a sync/ folder inside 
+  import static void Init(TotalLipSyncFileFormat lipSyncFormat, String fileExtension=0);
+  /// Sets the directory to read the lip sync data files from. Default "$DATA$/sync" (a /sync/ folder packaged as custom data) in AGS 3.6.0+, or "$INSTALLDATA$/sync" in older versions
   import static void SetDataDirectory(String dataDirectory);
   /// Sets the file extension of the data files. Default depends on the lipSyncFormat set with TotalLipSync.Init()
   import static void SetFileExtension(String fileExtension);
+  /// Sets the casing (capitalization) to use for the sync filenames. Default eCasingDefaultCase
+  import static void SetFileCasing(Casing fileCasing);
   /// Sets the frame rate of the lip sync data file. Used by Pamela and Moho formats. Default 24
   import static void SetDataFileFrameRate(int frameRate);
   /// Sets a dummy view that is used to enable Sierra lip sync. This view must have exactly 1 loop and 1 frame, and should not be used for anything else (since it will be overwritten by this module).
   import static void SetSierraDummyView(int viewNumber);
+  /// Sets the frame number to display when undefined in the sync file. (Typically corresponds to silence.) Default 0
+  import static void SetDefaultFrame(int frameNumber);
+  
   /// Sets up a default mapping of phonemes to animation frames, according to the lipSyncFormat set with TotalLipSync.Init()
   import static void AutoMapPhonemes();
   /// Adds a mapping from a phoneme to an animation frame that will be displayed for this phoneme. Phonemes are case-insensitive.
@@ -116,6 +128,7 @@ struct TotalLipSync
   import static void AddPhonemeMappings(String phonemes, int frame);
   /// Clears all phoneme mappings.
   import static void ClearPhonemeMappings();
+  
   /// Returns the character that is currently being lip synced, or null if none.
   import static Character* GetCurrentLipSyncingCharacter();
   /// Returns the phoneme code that is currently active (i.e. the phoneme being spoken at this time). If lip sync not currently running, null. If running but no phoneme set yet, "".
