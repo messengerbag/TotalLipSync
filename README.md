@@ -135,21 +135,21 @@ Returns the animation frame (i.e. the mouth shape) that is currently being displ
 ## Change Log
 
 v0.6
--Fixed parsing of .anno files failed to close file after read
--Fixed TotalLipSync.Init() would reset Data Directory setting
--Changed sync timing to use AudioChannel.PositionMs for greater accuracy, if available
--Wrapped sync functions in Game.SkippingCutscene checks to improve game performance when skipping cut scenes
--Set to use packaged data directory ($DATA$) by default
--Added TotalLipSync.SetFileCasing() to API to support case-sensitive file systems
--Added TotalLipSync.TotalLipSync.SetDefaultFrame() to API to support arbitrary speech view setups
--Added optional file extension argument to TotalLipSync.Init() for convenience
--Reorganized code for improved readability
--Updated documentation
+- Fixed parsing of .anno files failed to close file after read
+- Fixed TotalLipSync.Init() would reset Data Directory setting
+- Changed sync timing to use AudioChannel.PositionMs for greater accuracy, if available
+- Wrapped sync functions in Game.SkippingCutscene checks to improve game performance when skipping cut scenes
+- Set to use packaged data directory ($DATA$) by default
+- Added TotalLipSync.SetFileCasing() to API to support case-sensitive file systems
+- Added TotalLipSync.TotalLipSync.SetDefaultFrame() to API to support arbitrary speech view setups
+- Added optional file extension argument to TotalLipSync.Init() for convenience
+- Reorganized code for improved readability
+- Updated documentation
 
 v0.5
--Added APIs to get the currently lip syncing character, the current phoneme and current frame
+- Added APIs to get the currently lip syncing character, the current phoneme and current frame
 
 v0.4
--Fixed support for Sierra-style speech
--Minor bug fixes for edge-cases
--Documentation
+- Fixed support for Sierra-style speech
+- Minor bug fixes for edge-cases
+- Documentation
