@@ -139,7 +139,7 @@ v0.6
 - Fixed TotalLipSync.Init() would reset Data Directory setting
 - Changed sync timing to use AudioChannel.PositionMs for greater accuracy, if available
 - Wrapped sync functions in Game.SkippingCutscene checks to improve game performance when skipping cut scenes
-- Set to use packaged data directory ($DATA$) by default
+- Set to use packaged data directory ("$DATA$/sync") by default
 - Added TotalLipSync.SetFileCasing() to API to support case-sensitive file systems
 - Added TotalLipSync.TotalLipSync.SetDefaultFrame() to API to support arbitrary speech view setups
 - Added optional file extension argument to TotalLipSync.Init() for convenience
