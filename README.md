@@ -141,7 +141,7 @@ v0.6
 - Wrapped sync functions in Game.SkippingCutscene checks to improve game performance when skipping cut scenes
 - Set to use packaged data directory ("$DATA$/sync") by default
 - Added TotalLipSync.SetFileCasing() to API to support case-sensitive file systems
-- Added TotalLipSync.TotalLipSync.SetDefaultFrame() to API to support arbitrary speech view setups
+- Added TotalLipSync.SetDefaultFrame() to API to support arbitrary speech view setups
 - Added optional file extension argument to TotalLipSync.Init() for convenience
 - Reorganized code for improved readability
 - Updated documentation
